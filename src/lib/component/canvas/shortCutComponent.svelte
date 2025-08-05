@@ -44,36 +44,36 @@
 	onMount(() => {
 		const unsubscribe = isReady.subscribe((ready) => {
 			if (ready) {
-				const handleKeydown = (event: KeyboardEvent) => {
-					if (event.ctrlKey || event.metaKey) {
-						event.preventDefault();
-						switch (event.key.toLowerCase()) {
-							case "z":
-								undo();
-								break;
-							case "y":
-								redo();
-								break;
-							case "c":
-								copy();
-								break;
-							case "v":
-								paste();
-								break;
-							case "x":
-								cut();
-								break;
-							case "s":
-								save();
-								break;
-						}
-					} else {
-						if (event.key === "Delete") {
-							event.preventDefault();
-							del();
-						}
-					}
-				};
+				// const handleKeydown = (event: KeyboardEvent) => {
+				// 	if (event.ctrlKey || event.metaKey) {
+				// 		event.preventDefault();
+				// 		switch (event.key.toLowerCase()) {
+				// 			case "z":
+				// 				undo();
+				// 				break;
+				// 			case "y":
+				// 				redo();
+				// 				break;
+				// 			case "c":
+				// 				copy();
+				// 				break;
+				// 			case "v":
+				// 				paste();
+				// 				break;
+				// 			case "x":
+				// 				cut();
+				// 				break;
+				// 			case "s":
+				// 				save();
+				// 				break;
+				// 		}
+				// 	} else {
+				// 		if (event.key === "Delete") {
+				// 			event.preventDefault();
+				// 			del();
+				// 		}
+				// 	}
+				// };
 
 				// Add right-click event listener to shapes
 				$layer?.on("contextmenu", (e) => {
@@ -97,8 +97,8 @@
 					contextShape = null;
 				});
 
-				window.addEventListener("keydown", handleKeydown);
-				unsubscribeKeydown = () => window.removeEventListener("keydown", handleKeydown);
+				// window.addEventListener("keydown", handleKeydown);
+				// unsubscribeKeydown = () => window.removeEventListener("keydown", handleKeydown);
 			}
 		});
 
@@ -110,12 +110,12 @@
 			if ($stage) {
 				$stage.off("click tap");
 			}
-			if (unsubscribeKeydown) unsubscribeKeydown();
+			// if (unsubscribeKeydown) unsubscribeKeydown();
 		};
 	});
 
 	onDestroy(() => {
-		if (unsubscribeKeydown) unsubscribeKeydown();
+		// if (unsubscribeKeydown) unsubscribeKeydown();
 	});
 
 	function undo() {

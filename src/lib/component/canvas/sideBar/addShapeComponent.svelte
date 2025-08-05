@@ -28,7 +28,7 @@
 	// let lineAnchors: Konva.Circle[] = [];
 
 	function addRect() {
-		const pointer = $stage!.getPointerPosition() || { x: 50, y: 50 };
+		const pointer = $stage!.getAbsolutePosition() || { x: 50, y: 50 };
 		const shapeConfig = {
 			type: "Rect",
 			x: pointer.x,
@@ -44,7 +44,7 @@
 	}
 
 	function addCircle() {
-		const pointer = $stage!.getPointerPosition() || { x: 200, y: 200 };
+		const pointer = $stage!.getAbsolutePosition() || { x: 200, y: 200 };
 		const shapeConfig = {
 			type: "Circle",
 			x: pointer.x,
